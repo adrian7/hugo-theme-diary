@@ -1,11 +1,11 @@
-name = "Diary"
+name = "Diaryfork"
 license = "MIT"
 licenselink = "https://github.com/amazingrise/hugo-theme-diary/blob/master/LICENSE"
 description = "Moments piled up. A simple, elegant blog theme."
 homepage = "https://amazingrise.net/"
-tags = ["blog"]
+tags = ["blog", "personal"]
 features = ["mobile","elegant"]
-min_version = "0.59.0"
+min_version = "0.1"
 
 [author]
   name = "amazingrise"
