@@ -1078,3 +1078,18 @@ mjx-container
     }
   }
 }
+
+/** Dropcap */
+.post-body p:first-child:first-letter { 
+float: left; 
+  color: #903; 
+  font-size: 4em; 
+  line-height: 0.75em; 
+  padding-right: 0.1em; 
+}
+
+/** Post subtitle */
+.post-title .post-subtitle{
+	line-height: 1.5em;
+	font-style: oblique;
+}
