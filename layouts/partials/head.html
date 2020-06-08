@@ -1,5 +1,12 @@
 <head>
-<title>{{.Title}}</title>
+<title>
+	{{.Title}} - 
+	{{ if .IsHome }} 
+		{{ .Site.Params.Subtitle }} 
+	{{ else }}
+		{{ .Site.Title }}
+	{{ end }}	
+</title>
 
 <meta charset="utf-8">
 <meta name="X-UA-Compatible" content="IE=edge">
