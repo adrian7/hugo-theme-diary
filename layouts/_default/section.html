@@ -22,8 +22,8 @@
                                 {{.Title}}
                             </div>
                             <div class="post-item-meta">
-                                {{ dateFormat "Jan 2, 2006" .Date }}
-    
+								{{ printf `<span class="relativetime" datetime="%s" title="%s">%s</span>` (dateFormat "2006-01-02T15:04:05" .Date) (dateFormat "Jan 2, 2006" .Date) (dateFormat "January 2, 2006" .Date) | safeHTML }}
+							
                                 {{ if .Draft }}
                                 <span class="draft-label">DRAFT</span>
                                 {{ end }}

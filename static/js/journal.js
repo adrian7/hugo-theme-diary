@@ -58,7 +58,38 @@ app = new Vue({
                     document.cookie = "night=0;path=/";
                     document.body.classList.remove("night");
                 }
-            }
+            },
+			formatDatedWithTimeAgo() {
+				
+				const romanianLocale = (number, index, totalSec) => {
+					  // number: the timeago / timein number;
+					  // index: the index of array below;
+					  // totalSec: total seconds between date to be formatted and today's date;
+					  return [
+					    ['scris chiar acum', 'live'],
+					    ['scris acum %s secunde', 'în %s secunde'],
+					    ['scris acum 1 minut', 'într-un minut'],
+					    ['scris acum %s minute', 'în %s minute'],
+					    ['scris acum 1 oră', 'într-o oră'],
+					    ['scris acum %s ore', 'în %s ore'],
+					    ['scris acum o zi', 'într-o zi'],
+					    ['scris acum %s zile', 'peste %s zile'],
+					    ['scris acum o săptămână', 'peste o spăptămână'],
+					    ['scris acum %s săptămâni', 'peste %s săptămâni'],
+					    ['scris acum o lună', 'peste o lună'],
+					    ['scris acum %s luni', 'peste %s luni'],
+					    ['scris acum un an', 'peste un an'],
+					    ['scris acum %s ani', 'peste %s ani']
+					  ][index];
+				};
+				// register your locale with timeago
+				timeago.register('ro', romanianLocale);
+					
+				// Execute timeago on all 'relativetime' class elements
+		    	timeago.render(document.querySelectorAll('.relativetime'), 'ro');
+		    	// Optional: cancel the real-time updates for all nodes
+		    	timeago.cancel();
+			}
     },
     created() {
         window.addEventListener('scroll', this.handleScroll);
@@ -89,6 +120,8 @@ app = new Vue({
         this.handleScroll();
         this.handleResize();
         this.mounted = true;
+		
+		this.formatDatedWithTimeAgo();
     },
     destroyed() {
         window.removeEventListener('scroll', this.handleScroll);

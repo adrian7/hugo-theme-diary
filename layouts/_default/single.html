@@ -18,7 +18,10 @@
                     <div class="post-meta">
                         {{ if eq .Type "posts" .Params.date}}
                         <time itemprop="datePublished">
-							{{ .PublishDate.Format "Monday, Jan 2, 2006" }}
+							{{ index $.Site.Data.weekdays (printf "%d" .Page.Lastmod.Weekday) }}, 
+							{{ .Page.Lastmod.Day }}
+							{{ index $.Site.Data.months (printf "%d" .Page.Lastmod.Month) }}
+							{{ .Page.Lastmod.Year }}
                         </time>
                         {{ end }}
 						
@@ -53,7 +56,17 @@
                     {{.Content}}
                     {{ if and (not .Lastmod.IsZero) (eq .Type "posts") }}
                     <hr width="100%" id="EOF">
-                    <p style="color:#777;">Ultima modificare pe {{ .Page.Lastmod.Format "2006-01-02" }}</p>
+					<code class="lastModified">&bull; articol citit de 30 de ori</code><br/>
+                    <code class="lastModified">
+						
+						&bull; ultima modificare s-a înregistrat 
+						{{ index $.Site.Data.weekdays (printf "%d" .Page.Lastmod.Weekday) }}, 
+						{{ .Page.Lastmod.Day }}
+						{{ index $.Site.Data.months (printf "%d" .Page.Lastmod.Month) }}
+						{{ .Page.Lastmod.Year }}
+						la
+						{{ .Page.Lastmod.Format "15:04:05" }}
+					</code>
                     {{ end }}
                 </div>
             </div>

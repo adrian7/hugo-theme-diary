@@ -16,7 +16,7 @@
                                 {{.Description}}
                             </div>
                             <div class="post-item-meta">
-                                {{ .PublishDate.Format "2006-01-02" }}
+								{{ printf `<span class="relativetime" datetime="%s" title="%s">%s</span>` (dateFormat "2006-01-02T15:04:05" .PublishDate) (dateFormat "Jan 2, 2006" .PublishDate) (dateFormat "January 2, 2006" .PublishDate) | safeHTML }}
                             </div>
                         </div>
                         {{ $featured_image := .Params.featured_image }}
