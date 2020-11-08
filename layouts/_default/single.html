@@ -17,22 +17,21 @@
                     {{ end }}
                     <div class="post-meta">
                         {{ if eq .Type "posts" .Params.date}}
-                        <time itemprop="datePublished">
-							{{ index $.Site.Data.weekdays (printf "%d" .PublishDate.Weekday) }}, 
-							{{ .PublishDate.Day }}
-							{{ index $.Site.Data.months (printf "%d" .PublishDate.Month) }}
-							{{ .PublishDate.Year }}
-                        </time>
+	                        <time itemprop="datePublished">
+								{{ index $.Site.Data.weekdays (printf "%d" .PublishDate.Weekday) }}, 
+								{{ .PublishDate.Day }}
+								{{ index $.Site.Data.months (printf "%d" .PublishDate.Month) }}
+								{{ .PublishDate.Year }}
+	                        </time>
+							<span> 
+								<i class="material-icons" style="">timer</i> 
+								{{ if eq  .ReadingTime 1 }}
+									1 minut
+								{{ else }}	
+									{{ .ReadingTime }} minute
+								{{ end }}
+							</span>
                         {{ end }}
-						
-						<span> 
-							<i class="material-icons" style="">timer</i> 
-							{{ if eq  .ReadingTime 1 }}
-								1 minut
-							{{ else }}	
-								{{ .ReadingTime }} minute
-							{{ end }}
-						</span>
 
                         {{ if .Params.categories }}
                             <i class="material-icons" style="">folder</i>
