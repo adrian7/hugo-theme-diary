@@ -1,0 +1,8 @@
+<meta property="og:title" content="{{ .Page.Title }} - {{ .Site.Title }}">
+<meta property="og:description" content="{{ .Page.Description }}">
+<meta property="og:image" content="{{ .Params.featured_image | relLangURL | absURL }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+<meta name="twitter:title" content="{{ .Page.Title }} - {{ .Site.Title }}">
+<meta name="twitter:description" content="{{ .Page.Description }}">
+<meta name="twitter:image" content="{{ .Params.featured_image | relLangURL | absURL }}">

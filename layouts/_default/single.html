@@ -18,10 +18,10 @@
                     <div class="post-meta">
                         {{ if eq .Type "posts" .Params.date}}
                         <time itemprop="datePublished">
-							{{ index $.Site.Data.weekdays (printf "%d" .Page.Lastmod.Weekday) }}, 
-							{{ .Page.Lastmod.Day }}
-							{{ index $.Site.Data.months (printf "%d" .Page.Lastmod.Month) }}
-							{{ .Page.Lastmod.Year }}
+							{{ index $.Site.Data.weekdays (printf "%d" .PublishDate.Weekday) }}, 
+							{{ .PublishDate.Day }}
+							{{ index $.Site.Data.months (printf "%d" .PublishDate.Month) }}
+							{{ .PublishDate.Year }}
                         </time>
                         {{ end }}
 						
@@ -56,7 +56,9 @@
                     {{.Content}}
                     {{ if and (not .Lastmod.IsZero) (eq .Type "posts") }}
                     <hr width="100%" id="EOF">
-					<code class="lastModified">&bull; articol citit de 30 de ori</code><br/>
+					<code class="lastModified">
+						&bull; articol citit de {{ index (seq 25 100 | shuffle) 0 }} de ori
+					</code><br/>
                     <code class="lastModified">
 						
 						&bull; ultima modificare s-a înregistrat 

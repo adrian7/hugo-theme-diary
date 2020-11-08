@@ -18,6 +18,12 @@
 <meta name="theme-color" content="#ffffff">
 <!-- metadata -->
 
+<!-- social sharing meta tags -->
+{{ if not .IsHome }} 
+	{{- partial "share-meta.html" . -}}
+{{ end }}
+<!-- social sharing meta tags -->
+
 {{ if .Site.GoogleAnalytics }}
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
